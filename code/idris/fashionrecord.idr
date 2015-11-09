@@ -1,0 +1,3 @@
+module fashionrecord 
+import fashion 
+

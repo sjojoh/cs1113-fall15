@@ -1,0 +1,57 @@
+-- total functions
+-- block comments
+-- symbolic arguments
+-- pattern matching: any argument
+
+module bool
+import pair
+
+
+data bool = true | false
+
+id: bool -> bool
+id b = b
+
+constFalse: bool -> bool
+constFalse _ = false
+
+
+constTrue: bool -> bool
+constTrue _ = true
+
+not: bool -> bool
+not true = false
+not _ = true
+---1
+andp: pair bool bool -> bool
+andp (mkPair true true) = true
+andp _  = false
+
+
+---2
+xorp: pair bool bool ->bool
+xorp (mkPair false false) = false
+xorp (mkPair true true) = false
+xorp _ = true 
+
+
+---3
+nandp: pair bool bool -> bool
+nandp (mkPair a b) = not (andp (mkPair a b))
+
+---4 
+orp: pair bool bool -> bool 
+orp (mkPair false false) = false
+orp _ = true
+
+
+---Exam problem #2: There are 8 possible ways to fill in the result
+  ---column of a binery boolean function, and there are exactly 8
+  ---functions, and no more. 
+
+---exam problem #4 a 
+
+pand: bool -> bool -> bool
+pand true -> id_bool  
+pand false -> constFalse 
+

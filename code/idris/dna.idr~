@@ -1,0 +1,25 @@
+module DNA
+import pair 
+import pairTest
+import list 
+data base = A | T | C | G
+
+complement_base: base -> base 
+complement_base A = T
+complement_base T = A
+complement_base C = G
+complement_base G = C 
+
+
+Complement_Strand: list base -> list base
+Complement_Strand nil = nil
+Complement_Strand (h::t) = (complement_base h)::(Complement_Strand t)  
+
+strand1: list (pair base base) -> list base
+strand1 nil = nil 
+strand1 ((mkPair m n)::t) = (fst (mkPair m n))::(strand1 t) 
+
+strand2: list (pair base base) -> list base
+strand2 nil = nil 
+strand2 ((mkPair m n)::t) = (scd (mkPair m n))::(strand2 t) 
+

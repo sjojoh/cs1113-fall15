@@ -1,0 +1,32 @@
+module list
+import nat
+import pair
+
+infixr 7 ::
+data list' a = nil' | (::) a (list' a) 
+
+data list a = nil | cons a (list a)
+
+lO:list nat
+lO = nil
+
+l1:list nat
+l1 = cons O nil
+
+l2:list nat
+l2 = (cons (S O)(cons(S(S O)) nil))
+
+l3:list nat
+l3 = (cons (S O) (cons (S (S O)) (cons (S (S (S O))) nil)))
+
+length: list a -> nat
+length nil = O
+length (cons n l') = S (length l')
+
+appendp: list a -> list a -> list a
+appendp nil m = m
+appendp (cons n l) m = cons n (appendp l m)
+
+
+l4:nat 
+l4 = length nil {a = nat} 
